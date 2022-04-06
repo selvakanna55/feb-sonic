@@ -10,6 +10,8 @@ public class PrimeClass {
         }
         System.out.println();
     }
+
+
     //T: Sqrt(n) S: O(1)
     static void factorsSqrt(int n){
         for(int i=1;i<=Math.sqrt(n);i++){
@@ -42,6 +44,14 @@ public class PrimeClass {
 
     // O(n) , O(1)
     static boolean isPrime(int n){
+        if(n<=1){
+            System.out.println("not prime");
+            return false;
+        }
+        if(n==2){
+            System.out.println("prime");
+            return true;
+        }
         for(int i=2;i<n;i++){
             if(n%i==0){
                 System.out.println("not prime");
@@ -57,6 +67,11 @@ public class PrimeClass {
             System.out.println("not prime");
             return false;
         }
+        if(n==2){
+            System.out.println("prime");
+            return true;
+        }
+
         for(int i=2;i<=Math.sqrt(n);i++){
             if(n%i==0){
                 System.out.println("not prime");
@@ -67,15 +82,17 @@ public class PrimeClass {
         return true;
     }
 
-    // T:O(log*logn) S:O(n)
+    // T:O(N*log*logn) S:O(n)
     static  void printPrimeTillN(int n){
         //assume all are prime numbers
         boolean isPrime[] = new boolean[n+1];
-        for(int i=0;i<=n;i++) isPrime[i] = true;
+        for(int i=0;i<=n;i++){
+            isPrime[i] = true;
+        }
         isPrime[0] = isPrime[1] = false;
 
         for(int i=2;i<=Math.sqrt(n);i++){
-            if(isPrime[i]==true){ // 4 /6
+            if(isPrime[i]==true){ // 4 //6  false
                 for(int j=i*i;j<=n;j+=i){
                     isPrime[j] = false;
                 }
