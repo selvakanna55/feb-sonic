@@ -1,4 +1,4 @@
-package primes;
+package Primes;
 
 public class PrimeClass {
     // T: O(n) S:O(1)
