@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.ArrayList;
+
 class Node{
     int value;
     Node  next;
@@ -11,7 +13,6 @@ class Node{
 public class LinkedListExample{
     Node head = null;
     int length = 0;
-
 
     void insertAtPos(int pos, int val){
         if(pos<1) return;
@@ -34,7 +35,11 @@ public class LinkedListExample{
 
     void deleteAtPos(int pos){
         if(pos<1) return;
-        if(pos==1) head = head.next;
+        if(pos==1){
+            Node temp = head;
+            head = head.next;
+            temp.next = null;
+        }
         else{
             Node curr = head;
             while (pos-2!=0){
@@ -59,19 +64,11 @@ public class LinkedListExample{
     }
     public static void main(String[] args) {
         LinkedListExample ll = new LinkedListExample();
-        ll.insertAtPos(1, 10);
+        ll.insertAtPos(1, 0);
         ll.insertAtPos(2, 20);
-        ll.printLL();
-        ll.insertAtPos(3, 30);
-        ll.printLL();
+        ll.insertAtPos(3, 0);
         ll.insertAtPos(4, 40);
-        ll.insertAtPos(1, 999);
-        ll.printLL();
-        ll.deleteAtPos(2);
-        ll.printLL();
-        ll.deleteAtPos(1);
-        ll.printLL();
-        ll.deleteAtPos(ll.length);
+        ll.insertAtPos(1, 0);
         ll.printLL();
     }
 }
