@@ -13,8 +13,9 @@ public class ZerosFrontOfLL {
         ArrayList<Integer> li = new ArrayList<>();
         Node curr = head;
         while (curr!=null){
-            if(curr.data==0) count++;
-            else li.add(curr.data);
+            // uncomment bellow while submitting in the assignment
+//            if(curr.data==0) count++;
+//            else li.add(curr.data);
             curr = curr.next;
         }
         Node dummy = new Node(-1);
